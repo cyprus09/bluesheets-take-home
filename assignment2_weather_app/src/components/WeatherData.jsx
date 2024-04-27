@@ -1,64 +1,42 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import WeatherSearch from "./WeatherSearch";
+import WeatherInfo from "./WeatherInfo";
 
-const WeatherData = () => {
-  const [data, setData] = useState({});
-  const [location, setLocation] = useState("");
+const API_KEY = "ac6e72010b51f637c8f6d23e6989868a";
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid={api_key}`;
+function App() {
+  const [currCity, setCurrCity] = useState("London");
+  const [units, setUnits] = useState("metric");
+  const [weatherData, setWeatherData] = useState(null);
 
-  const searchLocation = (e) => {
-    if (e.key === "Enter") {
-      axios.get(url).then((response) => {
-        setData(response.data);
-        console.log(response.data);
-      });
-      setLocation("");
-    }
+  useEffect(() => {
+    const getWeather = async () => {
+      try {
+        const url =  `https://api.openweathermap.org/data/2.5/weather?q=${currCity}&appid=${API_KEY}&units=${units}`
+        const response = await fetch(url);
+        const data = await response.json();
+        setWeatherData(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getWeather();
+  }, [currCity, units]); 
+
+  const handleSearch = (newCity) => {
+    setCurrCity(newCity);
   };
+
+  const handleUnitChange = (newUnit) => {
+    setUnits(newUnit);
+  };
+
   return (
     <div className="container">
-      <div className="search">
-        <input
-          value={location}
-          type="text"
-          onChange={(e) => setLocation(e.target.value)}
-          onKeyPress={searchLocation}
-          placeholder="enter location"
-        />
-      </div>
-      <div className="top">
-        <div className="location">
-          <p>{data.name}</p>
-        </div>
-        <div className="temperature">
-          {data.main ? <h1>{data.main.temp.toFixed()} °C</h1> : null}
-        </div>
-        <div className="description">
-          {data.main ? <p>{data.weather[0].main}</p> : null}
-        </div>
-      </div>
-
-      {data.name != undefined && (
-        <div className="bottom">
-          <div className="feels">
-            {data.main ? (
-              <p className="bold">{data.main.feels_like.toFixed()} °C</p>
-            ) : null}
-            <p>Feels like</p>
-          </div>
-          <div className="humidity">
-            {data.main ? <p className="bold">{data.main.humidity} %</p> : null}
-            <p>Humidity</p>
-          </div>
-          <div className="wind">
-            {data.wind ? <p className="bold">{data.wind.speed} km/h</p> : null}
-            <p>Wind Speed</p>
-          </div>
-        </div>
-      )}
+      <WeatherSearch onSearch={handleSearch} units={units} onUnitChange={handleUnitChange} />
+      {weatherData && <WeatherInfo data={weatherData} />}
     </div>
   );
-};
+}
 
-export default WeatherData;
+export default App;
