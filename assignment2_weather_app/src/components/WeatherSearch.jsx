@@ -8,16 +8,13 @@ const WeatherSearch = ({ onSearch, units, onUnitChange }) => {
 
   // Function to handle form submission
   const handleSubmit = (e) => {
-    // Prevent default form submission behavior
     e.preventDefault();
     onSearch(searchTerm);
-    // Clear the search term after submission
     setSearchTerm("");
   };
 
-  // Function to handle unit change
+  //Function to handle unit change
   const handleUnitClick = (newUnit) => {
-    // Clear the search term after submission
     onUnitChange(newUnit);
   };
 
@@ -42,7 +39,7 @@ const WeatherSearch = ({ onSearch, units, onUnitChange }) => {
         {/* Celsius unit */}
         <span
           onClick={() => handleUnitClick("metric")}
-          className={`weather_unit_celsius ${
+          className={`weather_units ${
             units === "metric" ? "active" : ""
           }`}
         >
@@ -51,7 +48,7 @@ const WeatherSearch = ({ onSearch, units, onUnitChange }) => {
         {/* Fahrenheit unit */}
         <span
           onClick={() => handleUnitClick("imperial")}
-          className={`weather_unit_farenheit ${
+          className={`weather_units ${
             units === "imperial" ? "active" : ""
           }`}
         >

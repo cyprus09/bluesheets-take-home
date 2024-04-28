@@ -5,7 +5,7 @@ import WeatherInfo from "./WeatherInfo";
 // OpenWeatherMap API key
 const API_KEY = "ac6e72010b51f637c8f6d23e6989868a";
 
-function App() {
+function WeatherData() {
   // State variables for current city, units, and weather data
   const [currCity, setCurrCity] = useState("Singapore");
   const [units, setUnits] = useState("metric");
@@ -50,4 +50,4 @@ function App() {
   );
 }
 
-export default App;
+export default WeatherData;

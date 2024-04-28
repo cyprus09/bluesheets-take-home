@@ -58,11 +58,11 @@ const WeatherInfo = ({ data }) => {
         />
       </div>
       {/* Display current temperature */}
-      <p className="weather_temperature">{data.main.temp.toFixed()}&#176;</p>
+      <p className="weather_temperature">{data.main.temp.toFixed()}°</p>
       {/* Display min and max temperatures */}
       <div className="weather_minmax">
-        <p>Min: {data.main.temp_min.toFixed()}&#176;</p>
-        <p>Max: {data.main.temp_max.toFixed()}&#176;</p>
+        <p>Min: {data.main.temp_min.toFixed()}°</p>
+        <p>Max: {data.main.temp_max.toFixed()}°</p>
       </div>
       {/* Display additional weather information */}
       <div className="weather_info">
@@ -72,7 +72,7 @@ const WeatherInfo = ({ data }) => {
           <div>
             <p>Real Feel</p>
             <p className="weather_realfeel">
-              {data.main.feels_like.toFixed()}&#176;
+              {data.main.feels_like.toFixed()}°
             </p>
           </div>
         </div>
