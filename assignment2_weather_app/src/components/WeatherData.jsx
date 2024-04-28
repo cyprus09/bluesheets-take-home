@@ -3,7 +3,7 @@ import WeatherSearch from "./WeatherSearch";
 import WeatherInfo from "./WeatherInfo";
 
 // OpenWeatherMap API key
-const API_KEY = "ac6e72010b51f637c8f6d23e6989868a";
+const API_KEY = "";
 
 function WeatherData() {
   // State variables for current city, units, and weather data

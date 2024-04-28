@@ -16,6 +16,19 @@ This Weather App is a simple web application that allows users to search for wea
 - Font Awesome: Used for displaying search and weather icons.
 - Google Fonts: Used for the Poppins font family.
 
+## Warning
+You need to get your own api key and replace it in WeatherData.jsx file on line 6 :
+
+```javascript
+const API_KEY = '//Your API Key';
+```
+
+## API Key Generation
+1. Go to the following link: https://openweathermap.org/
+2. Sign in/ Create a new account
+3. Click on your username -> My API Keys
+4. Copy your private API key under 'Key'
+
 ## Setup
 
 1. Clone the repository:
