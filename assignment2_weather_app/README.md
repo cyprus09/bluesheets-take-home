@@ -34,7 +34,7 @@ const API_KEY = '//Your API Key';
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/weather-app.git
+git clone https://github.com/cyprus09/bluesheets-take-home.git
 ```
 
 2. Navigate to project-directory:
@@ -57,4 +57,4 @@ npm start
 
 
 ## Demo
-![screesnhot](./src/assets/demo.png)
+![screenshot](./src/assets/demo.png)

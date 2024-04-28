@@ -22,7 +22,7 @@ This is a simple Todo application built with React. It allows users to add, edit
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/weather-app.git
+git clone https://github.com/cyprus09/bluesheets-take-home.git
 ```
 
 2. Navigate to project-directory:
