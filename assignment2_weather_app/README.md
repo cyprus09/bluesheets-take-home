@@ -41,3 +41,7 @@ npm start
 ```
 
 5. Open your brower and visit http://localhost:3000 to view the app
+
+
+## Demo
+![screesnhot](./src/assets/demo.png)
